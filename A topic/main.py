@@ -11,7 +11,7 @@ class Is_Zombie(Enum):
 
 model = load_model('train/weight.h5')
 data_test = pd.read_csv('n1.csv')#此处使用测试集
-data_test = data_test.fillna("0")
+# data_test = data_test.fillna("0")
 data_test = data_test.loc[:,['registered_fund','employee_cnt','anche_year','assgro','liagro','vendinc','maibusinc','progro','netinc','ratgro','totequ','pat_cnt','mark_cnt','soft_cnt','works_cnt','ass_lia_rat','ROA','IP','loss_cnt']]
 print(data_test)
 X = data_test.iloc[:, :].astype(float)
@@ -24,7 +24,7 @@ print(X)
 test_np = np.array(X).reshape(-1, 19)
 # print(test_np)
 # print(test_np.size)
-for size in range(np.size(test_np,0)):
+for count in range(len(test_np)):
     pred = np.argmax(model.predict(test_np))
     init_label = Is_Zombie(pred).name
     print(init_label)
