@@ -1,0 +1,8 @@
+## pandas 
+
+pip install pandas==1.5.3
+
+
+## joblib
+
+pip install joblib==1.1.1
